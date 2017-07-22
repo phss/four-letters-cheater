@@ -11,13 +11,22 @@ class Dictionary(object):
       for line in file:
         word = line.strip()
         self.dict[self._str_key(word)].append(word)
-        
+
+  def find_any_matching(self, letters):
+    key = self._str_key(letters)
+    options = self.dict[key]
+    if not options:
+      return None
+    else:
+      return options[0]
+
   def _str_key(self, s):
     return ''.join(sorted(s))
 
 
-def main():
+def find_word(letters):
   dictionary = Dictionary('/usr/share/dict/words')
+  print dictionary.find_any_matching(letters)
 
 if __name__ == '__main__':
-  main()
+  find_word("blah")
