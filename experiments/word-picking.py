@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 # Given four letters, come up with an acceptable random word
+import random
 from collections import defaultdict
 
 class Dictionary(object):
@@ -18,10 +19,10 @@ class Dictionary(object):
     if not options:
       return None
     else:
-      return options[0]
+      return random.choice(options)
 
   def _str_key(self, s):
-    return ''.join(sorted(s))
+    return ''.join(sorted(s.lower()))
 
 
 def find_word(letters):
@@ -29,4 +30,4 @@ def find_word(letters):
   print dictionary.find_any_matching(letters)
 
 if __name__ == '__main__':
-  find_word("blah")
+  find_word("load")
