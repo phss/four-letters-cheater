@@ -5,8 +5,8 @@ from skimage import data, io, filters
 
 def extract(file_path):
   image = io.imread(file_path)
-  width, height = 237, 255
-  image_dims = [(420, 937), (185, 1167), (655, 1167), (420, 1400)]
+  width, height = 120, 150
+  image_dims = [(480, 980), (245, 1210), (715, 1210), (480, 1443)]
 
   for i, (x, y) in enumerate(image_dims):
     sub = image[y:(y+height), x:(x+width)]
